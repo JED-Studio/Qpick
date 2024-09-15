@@ -13,31 +13,37 @@ export default defineComponent({
         id: 1,
         title: 'peta',
         price: 100,
-        imageUrl: 'https://picsum.photos/200/300'
+        imageUrl: 'public/image/Image (1).png'
       },
       {
         id: 2,
         title: 'peta',
         price: 100,
-        imageUrl: 'https://picsum.photos/200/300'
+        imageUrl: 'public/image/Image (2).png'
       },
       {
         id: 3,
         title: 'peta',
         price: 100,
-        imageUrl: 'https://picsum.photos/200/300'
+        imageUrl: 'public/image/Image (3).png'
       },
       {
         id: 4,
         title: 'peta',
         price: 100,
-        imageUrl: 'https://picsum.photos/200/300'
+        imageUrl: 'public/image/Image (4).png'
       },
       {
         id: 5,
         title: 'peta',
         price: 100,
-        imageUrl: 'https://picsum.photos/200/300'
+        imageUrl: 'public/image/Image (5).png'
+      },
+      {
+        id: 6,
+        title: 'peta',
+        price: 100,
+        imageUrl: 'public/image/Image (6).png'
       }
     ])
 
@@ -48,6 +54,12 @@ export default defineComponent({
 
 <template>
   <div class="flex flex-wrap justify-center gap-8">
-    <card v-for="item in items" :key="item.id" :item="item" />
+    <card
+      v-for="item in items"
+      :key="item.id"
+      :title="item.title"
+      :imageUrl="item.imageUrl"
+      :price="item.price"
+    />
   </div>
 </template>
