@@ -14,15 +14,15 @@ export default defineComponent({
   <div class="page" style="display: flex; flex-direction: column; min-height: 100vh">
     <div
       class="flex justify-between items-center pt-4"
-      style="width: 100%; max-width: 1110px; margin: 0 auto; padding: 20px 20px"
+      style="width: 100%; max-width: 1150px; margin: 0 auto; padding: 20px 20px"
     >
-      <h1>Qpick</h1>
+      <RouterLink to="/"> <h1>Qpick</h1></RouterLink>
+
       <div class="flex gap-11 items-center">
         <RouterLink to="/favorites"><img src="/public/svg/Vector (1).svg" alt="" /></RouterLink>
         <RouterLink to="/basket"><img src="/public/svg/Vector.svg" alt="" /></RouterLink>
       </div>
     </div>
-    <RouterLink to="/"></RouterLink>
 
     <RouterView />
   </div>

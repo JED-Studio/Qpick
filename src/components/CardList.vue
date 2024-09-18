@@ -85,23 +85,28 @@ export default defineComponent({
         imageUrl: 'public/image/Image (6).png'
       }
     ])
+    const addItemToCart = (item) => {
+      // Отправить событие во второй компонент
+      defineEmits('add-item-to-cart', item)
+    }
 
-    return { items, items1 }
+    return { items, items1, addItemToCart }
   }
 })
 </script>
 
 <template>
-  <div style="width: 100%; max-width: 1100px; margin: 0 auto; padding: 20px 20px">Наушники</div>
-  <div class="flex flex-wrap justify-center gap-8">
+  <div style="width: 100%; max-width: 1150px; margin: 0 auto; padding: 20px 20px">Наушники</div>
+  <div class="flex flex-wrap justify-center" style="gap: 30px">
     <card
       v-for="item in items"
       :key="item.id"
       :title="item.title"
       :imageUrl="item.imageUrl"
       :price="item.price"
+      @add-to-cart="addItemToCart($event)"
     />
-    <div style="width: 100%; max-width: 1100px; margin: 0 auto; padding: 20px 20px">
+    <div style="width: 100%; max-width: 1150px; margin: 0 auto; padding: 20px 20px">
       Беспроводные наушники
     </div>
     <card
@@ -110,6 +115,7 @@ export default defineComponent({
       :title="item.title"
       :imageUrl="item.imageUrl"
       :price="item.price"
+      @add-to-cart="addItemToCart($event)"
     />
   </div>
 </template>

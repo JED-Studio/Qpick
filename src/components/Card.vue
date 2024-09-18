@@ -5,7 +5,8 @@ export default defineComponent({
   props: {
     title: String,
     imageUrl: String,
-    price: Number
+    price: Number,
+    item: Object
   }
 })
 </script>
@@ -29,7 +30,11 @@ export default defineComponent({
         </div>
 
         <div>
-          <img alt="Plus" />
+          <div>
+            <div>2927 Р</div>
+            <div style="font-size: 10px">3527 Р</div>
+          </div>
+          <div @click="emit('add-to-cart', item)">Купить</div>
         </div>
       </div>
     </div>
