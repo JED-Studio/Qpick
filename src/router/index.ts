@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import FavoritesView from '../views/FavoritesView.vue'
-import HomeView from '../views/HomeView.vue'
+
 import AboutView from '../views/BasketView.vue'
 
 const router = createRouter({

@@ -1,5 +1,3 @@
-<script lang="ts"></script>
-
 <template>
   <footer
     class="bg-white"

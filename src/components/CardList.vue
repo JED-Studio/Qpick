@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue'
 import Card from './Card.vue'
 
@@ -85,12 +85,8 @@ export default defineComponent({
         imageUrl: 'public/image/Image (6).png'
       }
     ])
-    const addItemToCart = (item) => {
-      // Отправить событие во второй компонент
-      defineEmits('add-item-to-cart', item)
-    }
 
-    return { items, items1, addItemToCart }
+    return { items, items1 }
   }
 })
 </script>
@@ -101,10 +97,10 @@ export default defineComponent({
     <card
       v-for="item in items"
       :key="item.id"
+      :id="item.id"
       :title="item.title"
       :imageUrl="item.imageUrl"
       :price="item.price"
-      @add-to-cart="addItemToCart($event)"
     />
     <div style="width: 100%; max-width: 1150px; margin: 0 auto; padding: 20px 20px">
       Беспроводные наушники
@@ -112,10 +108,10 @@ export default defineComponent({
     <card
       v-for="item in items"
       :key="item.id"
+      :id="item.id"
       :title="item.title"
       :imageUrl="item.imageUrl"
       :price="item.price"
-      @add-to-cart="addItemToCart($event)"
     />
   </div>
 </template>

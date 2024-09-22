@@ -1,11 +1,33 @@
 <script lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import Footer from './components/Footer.vue'
-import { defineComponent, ref } from 'vue'
+import { defineComponent, provide, reactive, ref } from 'vue'
 
 export default defineComponent({
   components: {
     Footer
+  },
+
+  setup() {
+    const basket = reactive<{ id: number; title: string; imageUrl: string; price: number }[]>([])
+
+    const addToBasket = (item: { id: number; title: string; imageUrl: string; price: number }) => {
+      const exists = basket.some((basketItem) => basketItem.id === item.id)
+      if (!exists) {
+        basket.push(item)
+      }
+    }
+
+    const removeFromBasket = (id: number) => {
+      const index = basket.findIndex((basketItem) => basketItem.id === id)
+      if (index !== -1) {
+        basket.splice(index, 1)
+      }
+    }
+
+    provide('basket', basket)
+    provide('addToBasket', addToBasket)
+    provide('removeFromBasket', removeFromBasket)
   }
 })
 </script>

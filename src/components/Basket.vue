@@ -1,3 +1,20 @@
+<script>
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  props: {
+    item: {
+      type: Object,
+      required: true
+    },
+    onRemove: {
+      type: Function,
+      required: true
+    }
+  }
+})
+</script>
+
 <template>
   <div class="" style="width: 100%; max-width: 1150px; margin: 0 auto 20px auto">
     <div
@@ -15,14 +32,14 @@
             </div>
           </div>
           <div>
-            <div>Apple BYZ S852I</div>
-            <div>2927 Р</div>
+            <div>2000</div>
+            <div>2000</div>
           </div>
         </div>
 
         <div class="flex flex-col justify-between items-center">
           <div class="flex">
-            <img src="/public/svg/unstall.svg" alt="" />
+            <img @click="onRemove(item.id)" src="/public/svg/unstall.svg" alt="" />
           </div>
 
           <div>

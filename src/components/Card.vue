@@ -1,12 +1,33 @@
-<script>
-import { defineComponent } from 'vue'
+<script lang="ts">
+import { defineComponent, inject } from 'vue'
 
 export default defineComponent({
   props: {
+    id: Number,
     title: String,
     imageUrl: String,
-    price: Number,
-    item: Object
+    price: Number
+  },
+
+  setup(props) {
+    const addToBasket = inject('addToBasket') as (item: {
+      id: number
+      title: string
+      imageUrl: string
+      price: number
+    }) => void
+
+    const handleAddToBasket = () => {
+      if (addToBasket) {
+        addToBasket({
+          id: props.id!,
+          title: props.title!,
+          imageUrl: props.imageUrl!,
+          price: props.price!
+        })
+      }
+    }
+    return { handleAddToBasket }
   }
 })
 </script>
@@ -31,10 +52,10 @@ export default defineComponent({
 
         <div>
           <div>
-            <div>2927 Р</div>
+            <div>{{ price }}</div>
             <div style="font-size: 10px">3527 Р</div>
           </div>
-          <div @click="emit('add-to-cart', item)">Купить</div>
+          <div @click="handleAddToBasket">Купить</div>
         </div>
       </div>
     </div>

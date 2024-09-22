@@ -1,10 +1,22 @@
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, inject, ref } from 'vue'
 import Basket from '@/components/Basket.vue'
 
 export default defineComponent({
   components: {
     Basket
+  },
+
+  setup() {
+    const basket = inject('basket') as { id: number; title: string }[]
+
+    const removeFromBasket = inject('removeFromBasket') as (id: number) => void
+    const handleRemove = (id: number) => {
+      if (removeFromBasket) {
+        removeFromBasket(id)
+      }
+    }
+    return { basket, handleRemove }
   }
 })
 </script>
@@ -15,9 +27,10 @@ export default defineComponent({
     class="flex justify-between"
     style="width: 100%; max-width: 1150px; margin: 0 auto; padding: 20px 20px"
   >
-    <div style="max-width: 633px; width: 100%">
-      <Basket />
+    <div v-if="basket.length" style="max-width: 633px; width: 100%">
+      <Basket v-for="item in basket" :key="item.id" :item="item" :on-remove="handleRemove" />
     </div>
+    <div v-else>Корзина пуста</div>
     <div
       class="relative bg-white border border-slate-100 rounded-3xl cursor-pointer transition hover:-translate-y-2 hover:shadow-xl"
       style="width: 350px; height: 120px"
