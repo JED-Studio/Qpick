@@ -1,7 +1,7 @@
 <script lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import Footer from './components/Footer.vue'
-import { defineComponent, provide, reactive, ref } from 'vue'
+import { defineComponent, provide, reactive, ref, computed } from 'vue'
 
 export default defineComponent({
   components: {
@@ -28,6 +28,10 @@ export default defineComponent({
     provide('basket', basket)
     provide('addToBasket', addToBasket)
     provide('removeFromBasket', removeFromBasket)
+
+    const basketCount = computed(() => basket.length)
+
+    return { basketCount }
   }
 })
 </script>
@@ -42,7 +46,23 @@ export default defineComponent({
 
       <div class="flex gap-11 items-center">
         <RouterLink to="/favorites"><img src="/public/svg/Vector (1).svg" alt="" /></RouterLink>
-        <RouterLink to="/basket"><img src="/public/svg/Vector.svg" alt="" /></RouterLink>
+        <RouterLink to="/basket" class="relative"
+          ><img src="/public/svg/Vector.svg" alt="" />
+          <span
+            class="absolute text-sm rounded-full px-1 text-center"
+            style="
+              top: -5px;
+              right: -5px;
+              border-radius: 50%;
+              width: 20px;
+              height: 20px;
+              line-height: 20px;
+              background-color: rgb(255 206 127);
+            "
+            v-if="basketCount > 0"
+            >{{ basketCount }}</span
+          ></RouterLink
+        >
       </div>
     </div>
 

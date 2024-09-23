@@ -12,37 +12,37 @@ export default defineComponent({
       {
         id: 1,
         title: 'Apple BYZ S852I',
-        price: 100,
+        price: 2500,
         imageUrl: 'public/image/Image (1).png'
       },
       {
         id: 2,
         title: 'Apple EarPods',
-        price: 100,
+        price: 1300,
         imageUrl: 'public/image/Image (2).png'
       },
       {
         id: 3,
         title: 'Apple EarPods',
-        price: 100,
+        price: 400,
         imageUrl: 'public/image/Image (3).png'
       },
       {
         id: 4,
         title: 'Apple BYZ S852I',
-        price: 100,
+        price: 5000,
         imageUrl: 'public/image/Image (4).png'
       },
       {
         id: 5,
         title: 'Apple EarPods',
-        price: 100,
+        price: 3333,
         imageUrl: 'public/image/Image (5).png'
       },
       {
         id: 6,
         title: 'Apple EarPods',
-        price: 100,
+        price: 21342,
         imageUrl: 'public/image/Image (6).png'
       }
     ])
@@ -51,25 +51,25 @@ export default defineComponent({
       {
         id: 1,
         title: 'peta',
-        price: 100,
+        price: 1434,
         imageUrl: 'public/image/Image (1).png'
       },
       {
         id: 2,
         title: 'peta',
-        price: 100,
+        price: 103,
         imageUrl: 'public/image/Image (2).png'
       },
       {
         id: 3,
         title: 'peta',
-        price: 100,
+        price: 1002,
         imageUrl: 'public/image/Image (3).png'
       },
       {
         id: 4,
         title: 'peta',
-        price: 100,
+        price: 1090,
         imageUrl: 'public/image/Image (4).png'
       },
       {

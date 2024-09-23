@@ -1,5 +1,5 @@
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
   props: {
@@ -10,7 +10,29 @@ export default defineComponent({
     onRemove: {
       type: Function,
       required: true
+    },
+    onQuantityChange: {
+      type: Function,
+      required: true
     }
+  },
+
+  setup(props) {
+    const quantity = ref(1) // состояние количества товара
+
+    const increaseQuantity = () => {
+      quantity.value++
+      props.onQuantityChange(props.item.id, quantity.value)
+    }
+
+    const decreaseQuantity = () => {
+      if (quantity.value > 1) {
+        quantity.value--
+        props.onQuantityChange(props.item.id, quantity.value)
+      }
+    }
+
+    return { quantity, increaseQuantity, decreaseQuantity }
   }
 })
 </script>
@@ -24,16 +46,16 @@ export default defineComponent({
       <div class="flex gap-14 h-full justify-between">
         <div class="flex items-center">
           <div class="flex flex-col justify-center items-center">
-            <img width="136" src="/public/image/Image (1).png" alt="Sneaker" />
+            <img width="136" :src="item.imageUrl" alt="Sneaker" />
             <div class="flex gap-4 justify-center">
-              <div><img src="/public/svg/-.svg" alt="" /></div>
-              <div>1</div>
-              <div><img src="/public/svg/+.svg" alt="" /></div>
+              <div><img @click="decreaseQuantity" src="/public/svg/-.svg" alt="" /></div>
+              <div>{{ quantity }}</div>
+              <div><img @click="increaseQuantity" src="/public/svg/+.svg" alt="" /></div>
             </div>
           </div>
           <div>
-            <div>2000</div>
-            <div>2000</div>
+            <div>{{ item.title }}</div>
+            <div>{{ item.price }}</div>
           </div>
         </div>
 
@@ -43,7 +65,7 @@ export default defineComponent({
           </div>
 
           <div>
-            <div>2000р</div>
+            <div>{{ item.price }}</div>
           </div>
         </div>
       </div>
