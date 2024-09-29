@@ -13,37 +13,37 @@ export default defineComponent({
         id: 1,
         title: 'Apple BYZ S852I',
         price: 2500,
-        imageUrl: 'public/image/Image (1).png'
+        imageUrl: new URL('@/assets/Image (1).png', import.meta.url).href
       },
       {
         id: 2,
         title: 'Apple EarPods',
         price: 1300,
-        imageUrl: 'public/image/Image (2).png'
+        imageUrl: new URL('@/assets/Image (2).png', import.meta.url).href
       },
       {
         id: 3,
         title: 'Apple EarPods',
         price: 400,
-        imageUrl: 'public/image/Image (3).png'
+        imageUrl: new URL('@/assets/Image (3).png', import.meta.url).href
       },
       {
         id: 4,
         title: 'Apple BYZ S852I',
         price: 5000,
-        imageUrl: 'public/image/Image (4).png'
+        imageUrl: new URL('@/assets/Image (4).png', import.meta.url).href
       },
       {
         id: 5,
         title: 'Apple EarPods',
         price: 3333,
-        imageUrl: 'public/image/Image (5).png'
+        imageUrl: new URL('@/assets/Image (5).png', import.meta.url).href
       },
       {
         id: 6,
         title: 'Apple EarPods',
         price: 21342,
-        imageUrl: 'public/image/Image (6).png'
+        imageUrl: new URL('@/assets/Image (6).png', import.meta.url).href
       }
     ])
 
@@ -52,37 +52,37 @@ export default defineComponent({
         id: 1,
         title: 'peta',
         price: 1434,
-        imageUrl: 'public/image/Image (1).png'
+        imageUrl: new URL('@/assets/Image (1).png', import.meta.url).href
       },
       {
         id: 2,
         title: 'peta',
         price: 103,
-        imageUrl: 'public/image/Image (2).png'
+        imageUrl: new URL('@/assets/Image (2).png', import.meta.url).href
       },
       {
         id: 3,
         title: 'peta',
         price: 1002,
-        imageUrl: 'public/image/Image (3).png'
+        imageUrl: new URL('@/assets/Image (3).png', import.meta.url).href
       },
       {
         id: 4,
         title: 'peta',
         price: 1090,
-        imageUrl: 'public/image/Image (4).png'
+        imageUrl: new URL('@/assets/Image (4).png', import.meta.url).href
       },
       {
         id: 5,
         title: 'peta',
         price: 100,
-        imageUrl: 'public/image/Image (5).png'
+        imageUrl: new URL('@/assets/Image (5).png', import.meta.url).href
       },
       {
         id: 6,
         title: 'peta',
         price: 100,
-        imageUrl: 'public/image/Image (6).png'
+        imageUrl: new URL('@/assets/Image (6).png', import.meta.url).href
       }
     ])
 
