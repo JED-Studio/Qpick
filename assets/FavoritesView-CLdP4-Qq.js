@@ -1,0 +1,1 @@
+import{_ as e,o as t,c}from"./index-CIytN9Y-.js";const s={},o={class:"favorites flex justify-center text-8xl"};function r(n,a){return t(),c("div",o,"Ты лучший")}const f=e(s,[["render",r]]);export{f as default};
